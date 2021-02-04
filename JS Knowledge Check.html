@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    # JavaScript Review / Checkup
+​
+For JavaScript let’s take a look at some of the core concepts for JS and see if we can figure out specific deficiencies 
+or target areas. Some of this might be straight-forward some of it might not be but it’s going to help us get you to 
+where you need to be. I’d like you to try and work through this and answer what you can / provide examples if you can. 
+After you work through this, I can provide notes / references as needed and/or meet up before or after class 
+for more 1:1 review / support.
+​
+## Objects
+​
+- What is an object in Javascript?
+<!-- An object is what goes into a variable (had to look this up)-->
+- If you have the following object, how would you get the person's last name:
+​
+```javascript
+let person = {
+  name: {
+    last: "Smith",
+    first: "John",
+  },
+  age: 45,
+};
+```
+<!-- person.last or person[last] -->
+​
+## Loops
+​
+- What is a for loop and when would you use one?
+<!-- A for loop is a loop that runs a number of times, you would use one when creating an array -->
+- What is the default structure of a for loop?
+<!-- let function = (); {for()} -->
+- If you have to run a loop for all numbers from 1 to 100 what would that look like?
+<!-- let function = (x); -->
+<!-- for (i=1; i < 101; i++ ) -->
+
+- What is a while loop and when would you use one?
+<!-- runs until a condition is false, the example is the coin toss but idk when else to use it -->
+- What is the basic structure of a while loop?
+<!-- while(condition is met) run(x) -->
+- Will this loop ever end?
+​
+  ```javascript
+  let bool = true;
+  while(bool){
+      console.log("loop is running");
+  ```
+  <!-- no, it wouldn't become false at any point -->
+​
+  ## Comparisons
+​
+  - With the following code, what will be logged to the console?
+​
+  ```javascript
+  let x = 10;
+  let y = 20;
+  if (x > y) {
+    console.log("X is larger");
+  } else {
+    console.log("Y is larger");
+  }
+  ```
+  <!-- X is larger -->
+​
+  - How do you check to see if two conditions are true such as `x < 10` AND `x > 0`?
+  <!-- if (x < 10 && x > 5) -->
+  - How do you check to see if either condition is true such as `x > 10` OR `x < 5`?
+  <!-- if (x > 10 || x < 5)-->
+  - Which of the following if statements (or would they both be) would be true?
+​
+  ```javascript
+  let x = 10;
+  let y = "10";
+  if (x == y) {
+  }
+  if (x === y) {
+  }
+  ```
+  <!-- I believe its ==, because === requires it to be strictly equal which it wouldn't be because y is a string -->
+​
+  - If you're using `x == y` or `x === y` how would you check to see if `x` is NOT equal to `y`?
+  <!-- != or !== -->
+  - When would you use `else` or `else if(){}`?
+<!-- ​else if it's the final possibility, or 1 of 2, else if if it creates a 3rd of higher possibility of something -->
+  ## Functions
+​
+  - What are functions in javascript?
+  <!-- let, var, const but let is easiest to use -->
+  - What does the `return` keyword do in a function?
+  <!-- returns a value -->
+  - Assuming you have the following function, how would you invoke (or trigger) the function?
+​
+  ```javascript
+  function myFunction() {}
+  ```
+  <!-- myFunction (had to look this one up) -->
+​
+  - Taking the following lines of code, when you call the function as below, what are the values of `name` and `age` inside of the function?
+​
+    ```javascript
+    function sayHello(name, age) {}
+    sayHello("Mike", 12);
+    ```
+    <!-- Mike and 12, hope this isn't a trick question -->
+​
+  - What is scope or more specifically, if you create a variable inside of a function can the code outside of the function access that variable?
+  <!-- the variable would only exist inside the function that created it -->
+​
+  ## The DOM
+​
+  - What is the DOM and why might it be important?
+  <!-- Document object model, I believe it allows you to look at code in a browser to see what the viewer would see -->
+  - Assuming you have the following piece of code in your HTML, how would you use javascript to grab that element: `<div id="container"></div>`
+  <!-- document.getElementById("container") -->
+  - What is the difference between `document.querySelector` and `document.querySelectorAll`?
+  <!-- I think Selector only chooses one element where SelectorAll selects all -->
+  - How would you and/or what tool would you use to repeat code every X seconds?
+  <!-- lettimeout? -->
+  - How would you have some code run only once after X seconds has passed?
+  <!-- I'm not sure -->
+  - Assuming you have the following line of code, how would you change the background color of the `myDiv` element using only javascript?
+​
+  ```javascript
+  let myDiv = document.getElementById("container");
+  ```
+  <!-- container.background-color: black -->
+​
+  - How do you add or remove classes to an HTML element in javascript?
+  <!-- .remove and .append I think are the terms -->
+  - How would you create a new element and then add it to the end of the body?
+  <!-- unsure, I think the tag is create element -->
+​
+  ## Events / Callbacks
+​
+  - Assuming you have an element with an id of `submit` how would you set up the code to listen for when someone clicks the button?
+  <!-- submit.addEventListener("click") -->
+  - Taking the following line of code, how would you change the callback into an arrow function?
+​
+  ```javascript
+  someHtmlElement.addEventListener("mouseenter", function () {});
+  ```
+  <!-- function() => {someHtmlElement.addEventListener("mouseenter")} -->
+​
+  - If you have an event listener for an element and the callback function below, what is `e` and what is `e.target`?
+​
+  ```javascript
+  someElement.addEventListener("mouseover", function (e) {
+    console.log(e.target);
+  });
+  ```
+  <!-- I think e is the object and I think e.target is logged to the console whenever the mouse goes over  -->
+​
+  ## Generic JavaScript
+​
+  - How would you get the value of "mike" out of the following array: `let arr = ["mike", "steve", "john"]`?
+  <!-- arr[0] -->
+  - What is an easy way to loop through all the elements in an array and what would that code look like?
+  <!-- no clue -->
+  - What does this code do and why might it be important to use this pattern?
+​
+  ```javascript
+  let x = [1, 2, 3, 4, 5];
+  let y = [...x];
+  ```
+  <!-- it shows y as x, it would be DRY  -->
+​
+  - What are prototypical functions and how might you use some of them?
+  <!-- unsure -->
+  - How can you tell how many elements are in an array named `arr1`
+<!-- count them? -->
+    
+</body>
+</html>
